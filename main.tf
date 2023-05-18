@@ -18,12 +18,12 @@ locals {
 }
 
 module "network_configs" {
-  source             = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//network?ref=v0.5.0"
+  source             = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//network?ref=v0.6.1"
   network_interfaces = var.macvtap_interfaces
 }
 
 module "vault_lb_configs" {
-  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//vault-load-balancer?ref=v0.5.0"
+  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//vault-load-balancer?ref=v0.6.1"
   install_dependencies = var.install_dependencies
   tls                  = var.tls
   haproxy              = {
@@ -40,12 +40,12 @@ module "vault_lb_configs" {
 }
 
 module "prometheus_node_exporter_configs" {
-  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//prometheus-node-exporter?ref=v0.5.0"
+  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//prometheus-node-exporter?ref=v0.6.1"
   install_dependencies = var.install_dependencies
 }
 
 module "chrony_configs" {
-  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//chrony?ref=v0.5.0"
+  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//chrony?ref=v0.6.1"
   install_dependencies = var.install_dependencies
   chrony               = {
     servers                = var.chrony.servers
@@ -55,7 +55,7 @@ module "chrony_configs" {
 }
 
 module "fluentd_configs" {
-  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//fluentd?ref=v0.5.0"
+  source               = "git::https://github.com/Ferlab-Ste-Justine/terraform-cloudinit-templates.git//fluentd?ref=v0.6.1"
   install_dependencies = var.install_dependencies
   fluentd              = {
     docker_services        = [
